@@ -1,6 +1,7 @@
 val scan = java.util.Scanner(System.`in`)
-fun main(args: Array<String>) {
-    val input = scan.nextLine()
+fun main() {
+
+    val input = if(scan.hasNext()) scan.nextLine() else " "
 
     if(input.toIntOrNull() != null){
         println(input.toIntOrNull())
