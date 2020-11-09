@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Practice_80</string>
+    <string name="add_student">Add student</string>
+    <string name="show_all_data">Show all data</string>
+    <string name="find_student">Find student</string>
+    <string name="delete_student">Delete student</string>
+    <string name="sort_students">Sort students</string>
+    <string name="change_info">Change info</string>
+    <string name="title_activity_add_student">AddStudentActivity</string>
+    <string name="age">Age</string>
+    <string name="second_name">Second name</string>
+    <string name="last_name">Last name</string>
+    <string name="name">Name</string>
+    <string name="choose_gender">Choose gender</string>
+    <string-array name="genderNames">
+        <item>M</item>
+        <item>F</item>
+    </string-array>
+</resources>

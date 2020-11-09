@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Pratice_60</string>
+    <string name="aValue">Value a</string>
+    <string name="bValue">Value b</string>
+    <string name="cValue">Value c</string>
+    <string name="calculateButton">Press me</string>
+    <string name="resultBlock"></string>
+</resources>

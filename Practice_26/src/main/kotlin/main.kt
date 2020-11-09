@@ -1,15 +1,12 @@
-import java.math.*
-import kotlin.math.pow
-import kotlin.math.sqrt
-
 val scan = java.util.Scanner(System.`in`)
 
-// Fn ~ pow(fi,n)/sqrt(5)
-
 fun main() {
-    println(findFibonacci(scan.nextInt().toDouble()))
+    println(if(scan.hasNext()) findFibonacci(scan.nextInt()) else println("No input"))
 }
 
-fun findFibonacci(n: Double): Double{
-    return 1.618.pow(n) / sqrt(5.0)
+fun findFibonacci(n: Int): Int{
+    return if(n == 1 || n == 2)
+        1
+    else
+        findFibonacci(n - 1) + findFibonacci(n - 2)
 }

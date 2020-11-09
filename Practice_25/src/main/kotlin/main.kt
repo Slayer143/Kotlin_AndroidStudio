@@ -19,19 +19,23 @@ fun main() {
     }
 
     students.sortedBy { it.name }.sortedBy { it.lastName }.sortedByDescending { it.averageMark }
-        .forEachIndexed { index, student -> if(index < 4) println("Name: ${student.lastName} ${student.name} Mark: ${student.averageMark}") }
 
-    /*val l = listOf("One", "Two", "Three")
-    val l1 = listOf("oName", "tName", "thName")
-    val l2 = listOf(1,2,3)
-    val l3 = l2.zip(l1.zip(l))
-    println(l3.sortedBy { it.second.first }.sortedBy { it.second.second }.sortedByDescending { it.first })*/
+        if(students[0].averageMark == students[1].averageMark
+            && students[1].averageMark == students[2].averageMark)
+            students.forEachIndexed { index, student -> if(index < 3) println("Name: ${student.lastName} ${student.name} Mark: ${student.averageMark}") }
+        else if(students[0].averageMark == students[1].averageMark
+            && students[2].averageMark != students[1].averageMark)
+            students.forEachIndexed { index, student -> if(index < 2) println("Name: ${student.lastName} ${student.name} Mark: ${student.averageMark}")
+            else if(student.averageMark == students[0].averageMark) println("Name: ${student.lastName} ${student.name} Mark: ${student.averageMark}") }
+    /*{ _, student -> if(student.averageMark > 2 ) {
+            println("Name: ${student.lastName} ${student.name} Mark: ${student.averageMark}")
+        } }*/
 }
 
 class Student(
     val lastName: String,
     val name: String,
-    private val marks: List<Int>){
+    marks: List<Int>){
     val averageMark: Int = if(marks.isNotEmpty()) marks
         .reduce { start, next -> ((start + next)) }
         .toInt() / marks.size else 0

@@ -3,8 +3,8 @@ fun main() {
     /*println(TaskOneRemastered(if(scan.hasNext()) scan.nextLine() else "").doLogic())
 
     println(TaskTwoRemastered(if(scan.hasNext()) scan.nextLine() else "").doLogic())
-
-    println(TaskThreeRemastered(if(scan.hasNext()) scan.nextLine() else "").doLogic())*/
+*/
+    println(TaskThreeRemastered(if(scan.hasNext()) scan.nextLine() else "").doLogic())
 }
 
 class TaskOneRemastered(private val input: String){
