@@ -14,32 +14,34 @@ class DataOperator {
     }
 
     fun addStudent(){
-        println("Enter name")
-        val name = if(scan.hasNextLine()) scan.nextLine() else " "
+        var name: String
+        var lastName: String
+        var secondName: String
+        var gender: String
+        var age: String
 
-        println("Enter last name")
-        val lastName = if(scan.hasNextLine()) scan.nextLine() else " "
+        do{
+            println("Enter name")
+            name = if(scan.hasNextLine()) scan.nextLine() else ""
 
-        println("Enter second name")
-        val secondName = if(scan.hasNextLine()) scan.nextLine() else " "
+            println("Enter last name")
+            lastName = if(scan.hasNextLine()) scan.nextLine() else ""
 
-        println("Enter gender")
-        val gender = if(scan.hasNextLine()) scan.nextLine() else " "
+            println("Enter second name")
+            secondName = if(scan.hasNextLine()) scan.nextLine() else ""
 
-        println("Enter age")
-        val age = if(scan.hasNextLine()) scan.nextLine() else " "
+            println("Enter gender")
+            gender = if(scan.hasNextLine()) scan.nextLine() else ""
 
-        if(name != " "
-            && lastName != " "
-            && secondName != " "
-            && gender != " "
-            && age != " "
-            && age.toIntOrNull() != null){
-            val newStudent = Student(name, lastName, secondName, gender[0] , age.toInt())
+            println("Enter age")
+            age = if(scan.hasNextLine()) scan.nextLine() else ""
 
-            file.writeText(file.readText() + newStudent.toFileWriteFormat() + "\n")
-        }
-        else println("Input error")
+            println("End of input...")
+        }while (name == "" || lastName == "" || secondName == "" || gender == "" || age == "" || age.toIntOrNull() == null && scan.hasNextLine())
+
+        val newStudent = Student(name, lastName, secondName, gender[0], age.toInt())
+
+        file.writeText(file.readText() + newStudent.toFileWriteFormat() + "\n")
     }
 
     fun changeStudentInfo(){
@@ -58,20 +60,28 @@ class DataOperator {
             && !infoForDeletion.contentEquals(Array(0){""}) && infoForDeletion.isNotEmpty()){
             println("Please enter new information. If input is empty information will not be changed")
 
-            println("Name: ")
-            val name = if(scan.hasNextLine()) scan.nextLine() else ""
+            var name = ""
+            var lastName = ""
+            var secondName = ""
+            var gender = ""
+            var age = ""
 
-            println("Last name: ")
-            val lastName = if(scan.hasNextLine()) scan.nextLine() else ""
+            do {
+                println("Name: ")
+                name = if(scan.hasNextLine()) scan.nextLine() else ""
 
-            println("Second name: ")
-            val secondName = if(scan.hasNextLine()) scan.nextLine() else ""
+                println("Last name: ")
+                lastName = if(scan.hasNextLine()) scan.nextLine() else ""
 
-            println("Gender: ")
-            val gender = if(scan.hasNextLine()) scan.nextLine() else ""
+                println("Second name: ")
+                secondName = if(scan.hasNextLine()) scan.nextLine() else ""
 
-            println("Age: ")
-            val age = if(scan.hasNextLine()) scan.nextLine() else ""
+                println("Gender: ")
+                gender = if(scan.hasNextLine()) scan.nextLine() else ""
+
+                println("Age: ")
+                age = if(scan.hasNextLine()) scan.nextLine() else ""
+            }while(scan.hasNextLine())
 
             students.find { it.getField("1") == infoForDeletion[0]
                     && it.getField("2") == infoForDeletion[1]

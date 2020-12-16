@@ -1,6 +1,8 @@
 package com.example.practice_80v2
 
+import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -16,6 +18,7 @@ class ShowStudentActivity : AppCompatActivity() {
     companion object{
         const val GET_INFO = 3
         const val STUDENTS = "STUDENTS"
+        private var photo : Bitmap? = null
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +36,7 @@ class ShowStudentActivity : AppCompatActivity() {
         secondNameShowModule.text = "Second name:" + student.getField("3")
         genderShowModule.text = "Gender:" + student.getField("4")
         ageShowModule.text = "Age:" + student.getField("5")
+        userPhoto.setImageBitmap(student.getPhoto())
 
         changeInfoButton.setOnClickListener {
             visibilityControl(View.VISIBLE)
@@ -53,19 +57,22 @@ class ShowStudentActivity : AppCompatActivity() {
                 && secondNameEditModule.text.toString() != ""
                 && genderSpinner.selectedItem.toString() != ""
                 && ageEditModule.text.toString() != ""
-                && ageEditModule.text.toString().toIntOrNull() != null){
+                && ageEditModule.text.toString().toIntOrNull() != null
+                && photo != null){
                 val newInfo = Student(nameEditModule.text.toString(),
                     lastNameEditModule.text.toString(),
                     secondNameEditModule.text.toString(),
                     genderSpinner.selectedItem.toString()[0],
-                    ageEditModule.text.toString().toInt())
+                    ageEditModule.text.toString().toInt(),
+                    photo)
 
                 students.find { it == student }?.changeStudentInfo(
                     newInfo.getField("2"),
                     newInfo.getField("1"),
                     newInfo.getField("3"),
                     newInfo.getField("4")[0],
-                    newInfo.getField("5"))
+                    newInfo.getField("5"),
+                    newInfo.getPhoto())
             }
 
             val intent = Intent()
@@ -74,6 +81,15 @@ class ShowStudentActivity : AppCompatActivity() {
 
             setResult(GET_INFO, intent)
             finish()
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == AddStudentActivity.GET_PHOTO && data != null) {
+            if (resultCode == Activity.RESULT_OK && data.dataString != null) {
+                photo = data?.getParcelableExtra<Bitmap>("data")
+            }
         }
     }
 
@@ -88,6 +104,7 @@ class ShowStudentActivity : AppCompatActivity() {
         secondNameEditModule.visibility = visibility
         genderSpinner.visibility = visibility
         ageEditModule.visibility = visibility
+        getPhotoButton.visibility = visibility
         submitButton.visibility = View.VISIBLE
     }
 }

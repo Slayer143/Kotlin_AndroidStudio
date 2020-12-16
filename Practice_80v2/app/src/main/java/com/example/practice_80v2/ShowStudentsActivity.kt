@@ -82,6 +82,7 @@ class ShowStudentsActivity : AppCompatActivity() {
             holder.view.secondNameShowModule.text = "Second name: " + dataset[position].getField("3")
             holder.view.genderShowModule.text = "Gender: " + dataset[position].getField("4")
             holder.view.ageShowModule.text = "Age: " + dataset[position].getField("5")
+            holder.view.photoShowModule.setImageBitmap(dataset[position].getPhoto())
 
             holder.view.setOnClickListener{
                 val intent = Intent(activity, ShowStudentActivity::class.java)

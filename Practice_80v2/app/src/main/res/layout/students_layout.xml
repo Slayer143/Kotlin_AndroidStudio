@@ -6,6 +6,12 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
+    <ImageView
+        android:id="@+id/photoShowModule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+
     <TextView
         android:id="@+id/nameShowModule"
         android:layout_width="wrap_content"

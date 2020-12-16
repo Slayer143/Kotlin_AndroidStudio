@@ -1,5 +1,6 @@
 package com.example.practice_80v2
 
+import android.graphics.Bitmap
 import java.io.Serializable
 
 data class Student (
@@ -7,13 +8,15 @@ data class Student (
     private var lastName: String,
     private var secondName: String,
     private var gender: Char,
-    private var age: Int): Serializable  {
+    private var age: Int,
+    private var photo: z?): Serializable  {
     fun changeStudentInfo(
         newName: String,
         newLastName: String,
         newSecondName: String,
         newGender: Char,
-        newAge: String
+        newAge: String,
+        newPhoto: Bitmap?
     ) {
         if (newName != " ")
             name = newName
@@ -34,6 +37,9 @@ data class Student (
             )
                 age = newAge.toInt()
         }
+
+        if (newPhoto != null)
+            photo = newPhoto
     }
 
     fun writeOutStudent(): String{
@@ -42,6 +48,10 @@ data class Student (
                 "Second name: ${this.secondName}" +
                 "Gender: ${this.gender}" +
                 "Age: ${this.age};"
+    }
+
+    fun getPhoto(): Bitmap?{
+        return this.photo
     }
 
     fun getField(fieldNum: String): String{

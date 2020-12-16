@@ -14,7 +14,8 @@
     <string name="choose_gender">Choose gender</string>
     <string name="submit">Submit</string>
     <string name="use_filter">Use filter</string>
-    <string name="use_search">use search</string>
+    <string name="use_search">Use search</string>
+    <string name="photo">Get photo</string>
     <string-array name="genderNames">
         <item>M</item>
         <item>F</item>

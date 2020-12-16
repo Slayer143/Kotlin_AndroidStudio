@@ -7,6 +7,11 @@
     tools:context=".ShowStudentActivity"
     android:orientation="vertical">
 
+    <ImageView
+        android:id="@+id/userPhoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <TextView
         android:id="@+id/nameShowModule"
         android:layout_width="match_parent"
@@ -124,6 +129,13 @@
         android:inputType="number"
         tools:ignore="MissingConstraints"
         android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/getPhotoButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/photo"
+        tools:visibility="gone" />
 
     <Button
         android:id="@+id/submitButton"

@@ -4,5 +4,6 @@
     <string name="bValue">Value b</string>
     <string name="cValue">Value c</string>
     <string name="calculateButton">Press me</string>
+    <string name="sendButton">Send it</string>
     <string name="resultBlock"></string>
 </resources>

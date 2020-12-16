@@ -38,4 +38,10 @@ class QuadraticEquationCalculatorUnitTest {
         assertEquals("x = +/-1", QuadraticEquationCalculator(4, 0, -9).withoutBValueCase())
         assertEquals("No squares;", QuadraticEquationCalculator(2, 0, 10).withoutBValueCase())
     }
+
+    @Test
+    fun withoutAValueCase_isCorrect(){
+        assertEquals("-2", QuadraticEquationCalculator(, 0,5, 10).calculateResult())
+        assertEquals("2", QuadraticEquationCalculator(0, 5, -10).calculateResult())
+    }
 }

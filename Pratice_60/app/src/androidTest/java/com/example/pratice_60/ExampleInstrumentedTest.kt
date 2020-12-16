@@ -34,12 +34,42 @@ class MainActivityInstrumentedTest {
     var activityScenarioRule = ActivityScenarioRule<MainActivity>(MainActivity::class.java)
 
     @Test
-    fun quadraticEquationCalculation(){
+    fun quadraticEquationCalculationTestOne(){
         onView(withId(R.id.aValue)).perform(typeText("1"))
         onView(withId(R.id.bValue)).perform(typeText("12"))
         onView(withId(R.id.cValue)).perform(typeText("36"))
 
         onView(withId(R.id.calculateButton)).perform(click())
         onView(withId(R.id.resultBlock)).check(matches(withText("x = -6")))
+    }
+
+    @Test
+    fun quadraticEquationCalculationTestTwo(){
+        onView(withId(R.id.aValue)).perform(typeText("0"))
+        onView(withId(R.id.bValue)).perform(typeText("5"))
+        onView(withId(R.id.cValue)).perform(typeText("-10"))
+
+        onView(withId(R.id.calculateButton)).perform(click())
+        onView(withId(R.id.resultBlock)).check(matches(withText("x = 2")))
+    }
+
+    @Test
+    fun quadraticEquationCalculationTestThree(){
+        onView(withId(R.id.aValue)).perform(typeText("1"))
+        onView(withId(R.id.bValue)).perform(typeText("-7"))
+        onView(withId(R.id.cValue)).perform(typeText("0"))
+
+        onView(withId(R.id.calculateButton)).perform(click())
+        onView(withId(R.id.resultBlock)).check(matches(withText("first x = -5; second x = 3")))
+    }
+
+    @Test
+    fun quadraticEquationCalculationTestFour(){
+        onView(withId(R.id.aValue)).perform(typeText("4"))
+        onView(withId(R.id.bValue)).perform(typeText("0"))
+        onView(withId(R.id.cValue)).perform(typeText("-9"))
+
+        onView(withId(R.id.calculateButton)).perform(click())
+        onView(withId(R.id.resultBlock)).check(matches(withText("x = +/-1")))
     }
 }

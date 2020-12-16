@@ -72,8 +72,15 @@
         android:inputType="number"/>
 
     <Button
+        android:id="@+id/photoButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/photo" />
+
+    <Button
         android:id="@+id/addButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/add_student" />
+
 </LinearLayout>

@@ -19,7 +19,8 @@ class QuadraticEquationCalculator(
             return "first x = 0; second x = ${-1 * convertedValB / convertedValA}"
         else if(convertedValA != 0 && convertedValB == 0 && convertedValC == 0)
             return "x = 0"
-
+        else if(convertedValA == 0 && convertedValB != 0 && convertedValC != 0)
+            return "x = ${(convertedValC * -1).toDouble() / convertedValB.toDouble()}"
         return "x - any number"
     }
 
